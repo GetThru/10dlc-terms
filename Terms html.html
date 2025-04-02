@@ -1,0 +1,151 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Terms css.css">
+  <link rel="icon" href="C:\Users\bchaa\Desktop\Privacy Policy Generator\2 - Copy - Copy 9_9_24\Images\favicon.png" type="image/x-icon">
+  <title>Terms & Conditions Generator</title>
+</head>
+<body>
+
+<div class="banner">
+  <!-- Banner section with a logo image -->
+  <img src="C:\Users\bchaa\Desktop\Privacy Policy Generator\2 - Copy - Copy 9_9_24\Images\getthru-logo_2021_full-color.png" alt="Logo" class="logo">
+</div>
+
+<div class="header">
+  <!-- Header section containing the title of the privacy policy generator -->
+  <h1>Text Messaging Terms & Conditions Generator</h1>
+
+  <!-- Instructions paragraph -->
+  <p class="instructions">
+    Use this form to generate Text Messaging Terms & Conditions that complies with 10DLC requirements. Be sure to review and integrate the generated sections into your terms as needed.
+  </p>
+</div>
+
+<div class="content">
+  <!-- Main content section -->
+
+  <!-- Wrapper with gray background that surrounds the white form wrapper -->
+  <div class="form-background">
+    <div class="form-wrapper">
+      
+      <!-- Text input form for collecting organization name -->
+      <form id="textForm" class="text-input-form">
+        <label for="organization">Organization Name: <span class="important">*</span></label>
+        <input type="text" id="organization" name="organization" required> 
+      </form>
+
+        <!-- Use case question -->
+        <form id="useCaseForm" class="multiplechoice-form">
+          <legend>Which use case are you registering for?<span class="important">*</span></legend>
+          <div class="radio-container">
+            <input type="radio" id="politicalusecasemc" name="usecase" value="Political">
+            <label for="politicalusecasemc">Political</label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" id="charityusecasemc" name="usecase" value="Charity">
+            <label for="charityusecasemc">Charity</label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" id="customercareusecasemc" name="usecase" value="Customer Care">
+            <label for="customercareusecasemc">Customer Care</label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" id="pollingvotingusecasemc" name="usecase" value="Polling and Voting">
+            <label for="pollingvotingusecasemc">Polling and Voting</label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" id="publicserviceusecasemc" name="usecase" value="Public Service Announcement">
+            <label for="publicserviceusecasemc">Public Service Announcement</label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" id="higheredusecasemc" name="usecase" value="Higher Education">
+            <label for="higheredusecasemc">Higher Education</label>
+          </div>
+        </form>
+        
+       <div id="donationQuestionContainer" style="display: none;">
+          <legend>Are you sending donation-related text messages?</legend>
+          <div class="radio-container">
+              <input type="radio" id="donationYes" name="donation" value="yes">
+              <label for="donationYes">Yes</label>
+          </div>
+          <div class="radio-container">
+              <input type="radio" id="donationNo" name="donation" value="no">
+              <label for="donationNo">No</label>
+          </div>
+      </div>
+
+      <form>
+        <legend>How can users contact your organization for any questions regarding your privacy policy?<span class="important">*</legend>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="email2" name="source" value="email2" data-toggle-target="emailFreeform" onclick="toggleFreeform('emailFreeform')">
+            <label for="email2">Email Address</label>
+        </div>
+        <div id="emailFreeform" style="display: none;">
+            <label for="emailInput">Enter your organization's email address:</label>
+            <input type="email" id="emailInput" name="email">
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="checkboxWebsite" name="source" value="checkboxWebsite" data-toggle-target="websiteFreeform" onclick="toggleFreeform('websiteFreeform')">
+            <label for="checkboxWebsite">Visiting a page on your website</label>
+        </div>
+        <div id="websiteFreeform" style="display: none;">
+            <label for="websiteInput">Enter the URL:</label>
+            <input type="url" id="websiteInput" name="website">
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="phone2" name="source" value="phone2" data-toggle-target="phoneFreeform" onclick="toggleFreeform('phoneFreeform')">
+            <label for="phone2">Phone Number</label>
+        </div>
+        <div id="phoneFreeform" style="display: none;">
+            <label for="phoneInput">Enter your organization's phone number:</label>
+            <input type="tel" id="phoneInput" name="phone">
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="address2" name="source" value="address2" data-toggle-target="addressFreeform" onclick="toggleFreeform('addressFreeform')">
+            <label for="address2">Address</label>
+        </div>
+        <div id="addressFreeform" style="display: none;">
+            <label for="addressInput">Enter your organization's address:</label>
+            <input type="text" id="addressInput" name="address">
+        </div>
+      </form>
+      
+
+        <!-- Text input form for collecting Privacy Policy Link -->
+        <form id="ppform" class="text-input-form">
+          <label for="pplink">Link to the Privacy Policy: <span class="important">*</span></label>
+          <input type="url" id="pplink" name="pplink" required> 
+        </form>
+
+      <!-- Button to generate the Opt-in Language -->
+      <form id="additionalTextForm" class="generate-button">
+        <button type="button" id="showTextButton">Generate Terms & Conditions</button>
+      </form>
+    
+    </div> <!-- End of form-wrapper -->
+  </div> <!-- End of form-background -->
+
+
+<!-- Paragraph to display the generated text -->
+<div id="displayText" class="generated-text"></div>
+
+<!-- Copy button BELOW generated text -->
+<button id="copyTextButtonBottom" class="generate-button" style="display: none;">Copy Terms & Conditions</button>
+
+<!-- Custom notification for copy action -->
+<div id="copyNotification">Terms & Conditions copied to clipboard!</div>
+
+
+<script src="Terms js.js"></script> <!-- External JavaScript file -->
+
+</body>
+</html>
