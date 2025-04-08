@@ -51,10 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const useCaseSelected = document.querySelector('input[name="usecase"]:checked');
         if (!useCaseSelected) {
-            useCaseError.style.display = 'block';
-            formIsValid = false;
-        } else {
-            useCaseError.style.display = 'none';
+            alert("Please select a use case.");
+            return;
         }
 
         if (donationQuestionContainer.style.display === 'block') {
@@ -72,9 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         
-        
-
-
         if (!formIsValid) return;
 
         privacyPolicyLink = formatURL(privacyPolicyLink);
@@ -127,6 +122,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const address = document.getElementById('addressInput').value.trim();
         if (addressChecked && address) {
             helpMethods.push(`send mail to ${address}`);
+        }
+
+        const contactError = document.getElementById('contactError');
+        const anyContactSelected = emailChecked || websiteChecked || phoneChecked || addressChecked;
+
+        if (!anyContactSelected) {
+            alert("Please add at least one contact method.");
+            return;
         }
 
         let helpSentence = "For assistance, reply HELP";
